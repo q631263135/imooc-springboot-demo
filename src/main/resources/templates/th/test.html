@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>test thymeleaf</title>
+</head>
+<body>
+
+<h1>th:prop</h1>
+<div>
+    姓名：<input type="text" th:id="${user.name}" th:value="${user.name}"/>
+    <br/>
+    年龄：<input type="text" th:value="${user.age}"/>
+    <br/>
+    生日：<input type="text" th:value="${#dates.format(user.birthday, 'yyyy-MM-dd')}"/>
+</div>
+<h1>th:object</h1>
+<div th:object="${user}">
+    姓名：<input type="text" th:id="*{name}" th:value="*{name}"/>
+    <br/>
+    年龄：<input type="text" th:value="*{age}"/>
+    <br/>
+    生日：<input type="text" th:value="*{#dates.format(birthday, 'yyyy-MM-dd')}"/>
+    <br/>
+    <h1>使用th:utext</h1>
+    备注：<span th:utext="*{desc}">123</span>
+</div>
+<h1>表单</h1>
+<form th:action="@{/th/postform}" th:object="${user}" th:method="post">
+    <input type="text" th:field="*{name}"/>
+    <input type="submit"/>
+</form>
+<h1>th:if</h1>
+<p th:if="${user.age eq 18}">永远18岁</p>
+<p th:if="${user.age} le 18">少女</p>
+<h1>th:selected</h1>
+<select>
+    <option th:selected="${user.age eq 18}">少女</option>
+    <option th:selected="${user.age gt 18}">大于18岁的少女</option>
+    <option th:selected="${user.age lt 18}">小于18岁的少女</option>
+</select>
+<h1>th:each</h1>
+<p th:if="${user.age eq 18}">永远18岁</p>
+<p th:if="${user.age} lt 19">少女</p>
+
+<h1>th:switch</h1>
+<!--这里的th:block 不能换成p,会报错:org.thymeleaf.exceptions.TemplateProcessingException: Cannot specify a "{th:case,data-th-case}" attribute in an environment where no switch operator has been defined before. (template: "/th/test" - line 48, col 4)-->
+<th:block th:switch="${user.name}">
+    <p th:case="#{roles.manager}">管理员</p>
+    <p th:case="*">普通用户</p>
+</th:block>
+</body>
+</html>

@@ -20,4 +20,6 @@ public class User {
     @JsonInclude(Include.NON_NULL)
     private String password;
     private Date birthday;
+
+    private String desc;
 }
