@@ -26,8 +26,17 @@ public class JsonResult<T> {
         this.data = t;
     }
 
+    public JsonResult(int i, String message) {
+        this.status = i;
+        this.msg = message;
+    }
+
     public static <V> JsonResult ok(V t) {
         return new JsonResult(t);
+    }
+
+    public static JsonResult error(String message) {
+        return new JsonResult(500, message);
     }
 }
 

@@ -36,14 +36,14 @@ public class ThymeleafController {
         user.setDesc("<p style='color: red'>身材一级棒</p>");
 
         map.addAttribute(user);
-        return "/th/test";
+        return "th/test";
     }
 
     @RequestMapping(value = "/postform", method = RequestMethod.POST)
     public String postform(User user) {
 
         System.out.println(user.getName());
-        return "redirect:/th/test";
+        return "redirect:th/test";
     }
 }
 

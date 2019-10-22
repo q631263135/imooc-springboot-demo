@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>测试ajax的请求异常</title>
+    <script th:src="@{https://code.jquery.com/jquery-2.2.4.js}">
+    </script>
+</head>
+<body>
+<script th:inline="javascript">
+    var context = [[@{/}]];
+    console.log(context);
+</script>
+
+<script th:src="@{/test.js}">
+</script>
+
+</body>
+</html>
