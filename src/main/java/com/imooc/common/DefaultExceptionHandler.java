@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.util.WebUtils;
 
 /**
  * <br/>
@@ -12,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author yangchaozheng
  * @date 2019/10/22 13:05
  */
-@ControllerAdvice
+//@ControllerAdvice
 public class DefaultExceptionHandler {
 
     public static final String ERROR_PAGE = "500";
@@ -26,6 +27,8 @@ public class DefaultExceptionHandler {
         mv.addObject("url", req.getRequestURL());
         mv.setViewName(ERROR_PAGE);
         return mv;
+
+
     }
 
 }

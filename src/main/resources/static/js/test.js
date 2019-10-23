@@ -1,16 +1,16 @@
-
 var option = {
-    url: context + "/exception/ajaxError",
+    url: "ajaxError",
     type: "post",
     async: false,
-    success: function(data) {
+    success: function (data) {
+        console.log(data);
         if (data.status == 200) {
         } else {
             alert(data.msg);
         }
     },
-    error: function() {
+    error: function () {
     }
 };
 
-$.ajax(option);
+$.ajax(option)
