@@ -10,7 +10,7 @@ public class SpringBootDemoApplication {
         try {
             SpringApplication.run(SpringBootDemoApplication.class, args);
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
 	}
 
