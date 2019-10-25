@@ -21,5 +21,6 @@ public class User {
     private String password;
     private Date birthday;
 
+    @JsonInclude(Include.NON_NULL)
     private String desc;
 }
